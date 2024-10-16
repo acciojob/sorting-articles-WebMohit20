@@ -33,7 +33,7 @@ const arr = bands.sort((a,b)=>{
   }
   return 0;
 })
-let ul= document.getElementById("band");
+let ul= document.getElementById("bands");
 arr.map(item=>{
 	let li = document.createElement("li");
 	li.innerHTML = item;
