@@ -13,24 +13,33 @@ let bands = ['The Plot in You',
 			   'Anywhere But Here',
 			   'An Old Dog'];
 
-function Has(a,b){
-	let art = ["A","An","The"];
-	
-	let arr=a.split(" ");
-	for(let t of art){
-	if(arr.includes(t)){
-		console.log(arr)
-	}
-	}
-		// if(
+function remove(art){
+  let word = art.split(" ");
+  if(word[0]=="The"||word[0]=="A"||word[0]=="An"){
+    return word.splice(1).join(" ")
+  }
+  return word;
+  
 }
 
-let sorted = bands.sort((a,b)=>{
-	
-	Has(a)
+const arr = bands.sort((a,b)=>{
+  a=remove(a);
+  b=remove(b);
+  if(a<b){
+    return -1;
+  }
+  else if(a>b){
+    return 1
+  }
+  return 0;
 })
-
-
+let ul= document.getElementById("band");
+arr.map(item=>{
+	let li = document.createElement("li");
+	li.innerHTML = item;
+	console.log(li);
+	ul.append(li);
+})
 
 
 
